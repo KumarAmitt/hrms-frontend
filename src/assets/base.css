@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
+
+:root {
+  --accent-primary: #dfff32;
+  --accent-secondary: #7310f8;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+}
