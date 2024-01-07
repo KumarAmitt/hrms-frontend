@@ -1,11 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Titillium+Web:wght@300;400&display=swap');
 
 :root {
-  --accent-primary: #dfff32;
-  --accent-secondary: #7310f8;
+  --color-pure-white: #FFFFFF;
+  --color-app-white: #FAFAFA;
+  --color-pure-black: #000000;
+  --color-app-black: #141414;
+  --color-gray-light: #EBF1F3;
+  --color-gray-dark: #E4E4E4;
+  --color-accent: #e91e63;
 }
 
 body {
   font-family: 'Jost', sans-serif;
   /*font-family: 'Titillium Web', sans-serif;*/
+}
+
+[color-scheme='light']{
+  /*background-color: #ccc;*/
+  /*color: blue*/
+}
+
+[color-scheme='dark']{
+  /*background-color: #000;*/
+  /*color: yellow;*/
 }
