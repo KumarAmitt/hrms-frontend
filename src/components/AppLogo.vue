@@ -14,6 +14,8 @@ const props = defineProps({
   font-size: 1.5rem;
   font-family: 'Titillium Web', sans-serif;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .logo-sm {
@@ -29,12 +31,11 @@ const props = defineProps({
 }
 
 .dark {
-  color: var(--color-app-black);
+  color: var(--color-black-soft);
 }
 
 .light {
-  color: var(--color-app-white);
+  color: var(--color-white-soft);
 }
-
 
 </style>
