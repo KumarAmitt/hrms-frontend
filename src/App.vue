@@ -6,8 +6,13 @@ import AppNavbar from "@/components/AppNavbar.vue";
 
 <template>
   <AppNavbar/>
-  <RouterView/>
+  <div class="main">
+    <RouterView/>
+  </div>
 </template>
 
 <style scoped>
+.main {
+  padding: 1em;
+}
 </style>

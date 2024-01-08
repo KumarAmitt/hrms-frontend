@@ -1,12 +1,20 @@
 <script setup>
+import {RouterLink} from "vue-router";
+import {computed} from "vue";
+
 const props = defineProps({
   size: { type: String, default: '' },
-  variant: {type: String, default: 'accent'}
+  variant: {type: String, default: 'accent'},
+  isLink: {type: Boolean, default: false}
+})
+
+const logoLink = computed(() => {
+  return props.isLink ? 'home' : '';
 })
 </script>
 
 <template>
-  <div :class="['logo', size, variant]">PeoplePro</div>
+  <RouterLink :to="{name: logoLink}" :class="['logo', size, variant]">PeoplePro</RouterLink>
 </template>
 
 <style scoped>
@@ -16,6 +24,7 @@ const props = defineProps({
   font-weight: 600;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .logo-sm {

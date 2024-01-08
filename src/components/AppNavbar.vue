@@ -16,7 +16,7 @@ const toggleMenu = () => {
 <template>
   <div class="nav-wrapper">
     <nav class="navbar">
-      <AppLogo />
+      <AppLogo :isLink="true" />
       <div @click="toggleMenu" :class="['menu-toggle', {'is-active': isActive}]">
         <span class="bar"></span>
         <span class="bar"></span>
