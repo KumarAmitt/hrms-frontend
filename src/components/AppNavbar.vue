@@ -3,9 +3,12 @@ import AppLogo from "@/components/AppLogo.vue";
 import {RouterLink} from "vue-router";
 import {ref} from 'vue';
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
+import {useAuthStore} from "@/stores/auth.js";
 
 const mobileNav = ref(false);
 const isActive = ref(false);
+
+const authStore = useAuthStore();
 
 const toggleMenu = () => {
   mobileNav.value = !mobileNav.value
@@ -28,6 +31,7 @@ const toggleMenu = () => {
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Work</RouterLink></li>
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Careers</RouterLink></li>
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Contact Us</RouterLink></li>
+        <li class="nav-item"><button @click="authStore.logout">Logout</button></li>
         <li class="nav-item"><ThemeSwitch/></li>
       </ul>
     </nav>

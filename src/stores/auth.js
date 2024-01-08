@@ -3,14 +3,17 @@ import {ref} from 'vue';
 import {BASE_URL} from "@/constants.js";
 import axios from "axios";
 import {useRouter} from "vue-router";
+import { useStorage } from '@vueuse/core'
+
+// const id = useStorage('my-id', 'some-string-id', sessionStorage)
 
 export const useAuthStore = defineStore('auth', () => {
 
   const user = ref(null);
-  const token = ref(null);
   const isLoading = ref(false);
   const authError = ref(null);
-  const router = useRouter()
+  const token = useStorage('token', null);
+  const router = useRouter();
 
   // ACTIONS
   const signup = async (credentials) => {
@@ -48,6 +51,7 @@ export const useAuthStore = defineStore('auth', () => {
       user.value = response.data.user
       token.value =  response.headers.get('Authorization').split(' ')[1]
       console.log(response)
+      useStorage('token', token.value)
       await router.push({name: 'dashboard'});
     } catch(error) {
       console.log('ERROR--', error)
@@ -64,7 +68,19 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  const logout = async () => {
+    console.log('TOKEN--', token.value)
+    try {
+      const response = await axios.delete(`${BASE_URL}/logout`, {
+        headers: { "Authorization": `Bearer ${token.value}` }
+      });
+      console.log('LOGOUT RESPONSE--', response);
+    } catch(error) {
+      console.log('LOGOUT--', error)
+    }
+  }
+
   const closeError = () => authError.value = null;
 
-  return {isLoading, authError, signup, login, closeError}
+  return {isLoading, authError, signup, login, logout, closeError}
 })
