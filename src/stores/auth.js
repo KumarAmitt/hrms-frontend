@@ -5,8 +5,6 @@ import axios from "axios";
 import {useRouter} from "vue-router";
 import { useStorage } from '@vueuse/core'
 
-// const id = useStorage('my-id', 'some-string-id', sessionStorage)
-
 export const useAuthStore = defineStore('auth', () => {
 
   const user = ref(null);
@@ -24,7 +22,7 @@ export const useAuthStore = defineStore('auth', () => {
 
       const response = await axios.post(`${BASE_URL}/signup`, {user: credentials});
       user.value = response.data.user
-      token.value =  response.headers.get('Authorization').split(' ')[1]
+      token.value =  response.headers.get('Authorization')
       console.log(token.value)
       console.log(user.value);
       console.log(response);
@@ -49,7 +47,7 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       const response = await axios.post(`${BASE_URL}/login`, {user: credentials});
       user.value = response.data.user
-      token.value =  response.headers.get('Authorization').split(' ')[1]
+      token.value =  response.headers.get('Authorization')
       console.log(response)
       useStorage('token', token.value)
       await router.push({name: 'dashboard'});
@@ -72,15 +70,47 @@ export const useAuthStore = defineStore('auth', () => {
     console.log('TOKEN--', token.value)
     try {
       const response = await axios.delete(`${BASE_URL}/logout`, {
-        headers: { "Authorization": `Bearer ${token.value}` }
+        headers: { "Authorization": token.value }
       });
       console.log('LOGOUT RESPONSE--', response);
+      router.push({name: 'home'});
+      token.value = null;
     } catch(error) {
-      console.log('LOGOUT--', error)
+      if (error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert(error.message);
+      }
+    }
+  }
+
+  const currentUser = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/current_user`, {
+        headers: { "Authorization": token.value }
+      });
+      console.log(response);
+    } catch(error) {
+      if (error.response) {
+        alert(error.response.data)
+      } else {
+        alert(error.message);
+      }
+    }
+  }
+
+  const userSignedIn = async () => {
+    try {
+      const response = await axios.get(`${BASE_URL}/user_signed_in`, {
+        headers: { "Authorization": token.value }
+      });
+      return response.data.user_signed_in
+    } catch(error) {
+      console.log(error.message)
     }
   }
 
   const closeError = () => authError.value = null;
 
-  return {isLoading, authError, signup, login, logout, closeError}
+  return {isLoading, authError, signup, login, logout, currentUser, userSignedIn, closeError}
 })

@@ -14,6 +14,15 @@ const toggleMenu = () => {
   mobileNav.value = !mobileNav.value
   isActive.value = !isActive.value
 }
+
+const closeMenu = () => {
+  isActive.value = false
+}
+
+const handleLogout = () => {
+  authStore.logout();
+  closeMenu()
+}
 </script>
 
 <template>
@@ -27,12 +36,13 @@ const toggleMenu = () => {
       </div>
       <ul :class="['nav', {'mobile-nav': mobileNav}]">
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Home</RouterLink></li>
-        <li class="nav-item"><RouterLink :to="{name: 'home'}">About</RouterLink></li>
+        <li class="nav-item"><RouterLink :to="{name: 'dashboard'}" @click="toggleMenu">Dashboard</RouterLink></li>
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Work</RouterLink></li>
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Careers</RouterLink></li>
         <li class="nav-item"><RouterLink :to="{name: 'home'}">Contact Us</RouterLink></li>
-        <li class="nav-item"><button @click="authStore.logout">Logout</button></li>
+        <li class="nav-item"><button @click="handleLogout">Logout</button></li>
         <li class="nav-item"><ThemeSwitch/></li>
+        <li class="nav-item"><button @click="authStore.currentUser">Current User</button></li>
       </ul>
     </nav>
   </div>
