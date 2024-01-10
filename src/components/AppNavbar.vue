@@ -28,21 +28,37 @@ const handleLogout = () => {
 <template>
   <div class="nav-wrapper">
     <nav class="navbar">
-      <AppLogo :isLink="true" />
+      <AppLogo :isLink="true"/>
       <div @click="toggleMenu" :class="['menu-toggle', {'is-active': isActive}]">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
       <ul :class="['nav', {'mobile-nav': mobileNav}]">
-        <li class="nav-item"><RouterLink :to="{name: 'home'}">Home</RouterLink></li>
-        <li class="nav-item"><RouterLink :to="{name: 'dashboard'}" @click="toggleMenu">Dashboard</RouterLink></li>
-        <li class="nav-item"><RouterLink :to="{name: 'home'}">Work</RouterLink></li>
-        <li class="nav-item"><RouterLink :to="{name: 'home'}">Careers</RouterLink></li>
-        <li class="nav-item"><RouterLink :to="{name: 'home'}">Contact Us</RouterLink></li>
-        <li class="nav-item"><button @click="handleLogout">Logout</button></li>
-        <li class="nav-item"><ThemeSwitch/></li>
-        <li class="nav-item"><button @click="authStore.currentUser">Current User</button></li>
+        <li class="nav-item">
+          <RouterLink :to="{name: 'home'}">Home</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink :to="{name: 'dashboard'}" @click="toggleMenu">Dashboard</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink :to="{name: 'home'}">Work</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink :to="{name: 'home'}">Careers</RouterLink>
+        </li>
+        <li class="nav-item">
+          <RouterLink :to="{name: 'home'}">Contact Us</RouterLink>
+        </li>
+        <li class="nav-item">
+          <button @click="handleLogout">Logout</button>
+        </li>
+        <li class="nav-item">
+          <ThemeSwitch/>
+        </li>
+        <li class="nav-item">
+          <button @click="authStore.currentUser">Current User</button>
+        </li>
       </ul>
     </nav>
   </div>
@@ -53,8 +69,9 @@ const handleLogout = () => {
   position: sticky;
   position: -webkit-sticky; /* Safari */
   top: 0;
-  background-color: var(--color-white-mute);
   padding: 0.2em 0.5em;
+  background-color: var(--color-background);
+  z-index: 100;
 }
 
 /* NAVIGATION */
@@ -63,12 +80,11 @@ const handleLogout = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //border: 1px solid blue;
+//border: 1px solid blue;
 }
 
 .navbar ul {
-  //border: 2px solid green;
-  list-style: none;
+//border: 2px solid green; list-style: none;
   margin: 0;
   padding-left: 0;
   display: flex;
@@ -83,7 +99,7 @@ const handleLogout = () => {
 }
 
 .navbar ul li + li {
- margin-left: 1em;
+  margin-left: 1em;
 }
 
 .nav-item a {

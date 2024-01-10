@@ -14,7 +14,7 @@ const logoLink = computed(() => {
 </script>
 
 <template>
-  <RouterLink :to="{name: logoLink}" :class="['logo', size, variant]">PeoplePro</RouterLink>
+  <RouterLink :to="{name: logoLink}" :class="['logo', size, variant]">Talent Park</RouterLink>
 </template>
 
 <style scoped>
