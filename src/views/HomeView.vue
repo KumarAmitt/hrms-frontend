@@ -1,8 +1,16 @@
 <script setup>
-import {RouterLink} from 'vue-router'
+import {ref} from 'vue';
+import {useRouter} from 'vue-router'
+import AppNavbar from "@/components/AppNavbar.vue";
+
+const router = useRouter();
+const goToLoginPage = () => {
+  router.push({name: 'login'})
+}
 </script>
 
 <template>
+  <AppNavbar />
   <h1 class="app-intro">
     All-in-One Software for streamlining internal business functions like
     <span>Onboarding</span>,
@@ -10,7 +18,8 @@ import {RouterLink} from 'vue-router'
     <span>Attendance Management</span>, and
     <span>Projects Tracking</span>
   </h1>
-  <RouterLink :to="{name: 'login'}" class="start-btn">Get Started</RouterLink>
+  <button @click="goToLoginPage" class="start-btn">Get Started</button>
+  <router-view else />
 </template>
 
 <style scoped>
@@ -25,18 +34,13 @@ import {RouterLink} from 'vue-router'
 }
 
 .start-btn {
-  position: fixed;
-  bottom: 2em;
-  left: 20%;
-  right: 20%;
-  text-align: center;
-  text-decoration: none;
   font-size: 1.2rem;
   background-color: var(--color-accent);
   color: var(--color-text-dark-1);
   padding: 0.5em 1em;
   border-radius: 28px;
-  transition: transform 0.7s ease-in-out;;
+  border: none;
+  transition: transform 0.7s ease-in-out;
 }
 
 </style>

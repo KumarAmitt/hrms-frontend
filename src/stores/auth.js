@@ -26,6 +26,7 @@ export const useAuthStore = defineStore('auth', () => {
       console.log(token.value)
       console.log(user.value);
       console.log(response);
+      await router.push({name: 'login'});
     } catch(error) {
       console.log('ERROR--', error)
       if (error.response) {

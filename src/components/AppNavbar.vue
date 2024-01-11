@@ -67,11 +67,11 @@ const handleLogout = () => {
 <style scoped>
 .nav-wrapper {
   position: sticky;
-  position: -webkit-sticky; /* Safari */
   top: 0;
-  padding: 0.2em 0.5em;
+  padding: 0.5em;
   background-color: var(--color-background);
   z-index: 100;
+  border-bottom: 1px solid var(--color-divider-dark-2);
 }
 
 /* NAVIGATION */
@@ -124,7 +124,7 @@ const handleLogout = () => {
 .menu-toggle .bar {
   width: 25px;
   height: 3px;
-  background-color: #3f3f3f;
+  background-color: var(--color-accent);
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -154,7 +154,7 @@ const handleLogout = () => {
 
 /* Mobile Devices - Phones/Tablets */
 
-@media only screen and (max-width: 720px) {
+@media only screen and (max-width: 992px) {
   /* MOBILE NAVIGATION */
   .navbar ul {
     flex-direction: column;
