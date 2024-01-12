@@ -68,7 +68,7 @@ const handleLogout = () => {
 .nav-wrapper {
   position: sticky;
   top: 0;
-  padding: 0.5em;
+  padding: 0 0.5em;
   background-color: var(--color-background);
   z-index: 100;
   border-bottom: 1px solid var(--color-divider-dark-2);
@@ -81,6 +81,7 @@ const handleLogout = () => {
   justify-content: space-between;
   align-items: center;
 //border: 1px solid blue;
+  height: 3em;
 }
 
 .navbar ul {

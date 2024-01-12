@@ -24,7 +24,6 @@ import AppNavbar from "@/components/AppNavbar.vue";
 }
 
 .dashboard-nav {
-  //border: 2px solid blue;
   position: fixed;
   bottom: 0;
   left: 0;

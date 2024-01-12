@@ -1,5 +1,17 @@
-import { library } from '@fortawesome/fontawesome-svg-core'
+import {library} from '@fortawesome/fontawesome-svg-core'
 
-import { faUser } from '@fortawesome/free-regular-svg-icons'
+// Regular
+import {
+  faUser
+} from '@fortawesome/free-regular-svg-icons'
 
-library.add(faUser)
+// Solid
+import {
+  faArrowRight,
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add(
+  faUser,
+  faArrowRight,
+)
+
