@@ -26,7 +26,7 @@ const goToLoginPage = () => {
     </section>
     <section class="section__dynamic">
       <div class="start-btn" v-if="route.name === 'home'">
-        <AppButton @click="goToLoginPage">Get Started</AppButton>
+        <AppButton @click="goToLoginPage" type="arrow-button">Get Started</AppButton>
       </div>
       <router-view  />
     </section>
@@ -40,12 +40,22 @@ main {
 }
 
 .section__static {
-  //border: 1px solid red;
+  //border: 2px solid blue;
+  position: relative;
+  padding-bottom: 100px;
 }
 
-.section__dynamic {
-  //border: 1px solid green;
+.section__static::before {
+  content: '';
+  height: 100px;
+  background-color: var(--color-background);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform: skewY(-3deg);
 }
+
 
 .intro-text {
   //border: 1px solid red;
@@ -67,40 +77,34 @@ main {
   text-align: center;
 }
 
-/*
-.home-page {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: calc(100vh - 3em);
+@media (min-width: 768px) {
+  main {
+    //margin: auto 4em;
+  }
 }
 
-.intro-text {
-  font-size: 1.8rem;
-  margin-top: 4em;
-  border: 1px solid var(--color-divider-dark-2);
-  padding: 1em;
-  border-radius: 1em;
-}
+@media (min-width: 992px) {
+  main {
+    //background-color: yellow;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    height: calc(100vh - 3.1em);
+  }
 
-.app-intro span {
-  font-size: 2.2rem;
-  color: var(--color-accent);
-}
+  section {
+    flex: 1;
+    border: 1px solid red;
+  }
 
-.start-btn {
-  font-size: 1.2rem;
-  background-color: var(--color-accent);
-  color: var(--color-text-dark-1);
-  padding: 0.5em 1em;
-  border-radius: 28px;
-  border: none;
-  transition: transform 0.7s ease-in-out;
-  margin-bottom: 3em;
-  width: 50%;
+  .intro-text {
+    margin-top: 0;
+  }
+
+  .start-btn {
+    position: initial;
+  }
 }
-*/
 </style>
 
 

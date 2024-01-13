@@ -8,10 +8,12 @@ import {
 // Solid
 import {
   faArrowRight,
+  faXmark,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faUser,
   faArrowRight,
+  faXmark
 )
 
