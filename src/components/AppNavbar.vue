@@ -36,19 +36,7 @@ const handleLogout = () => {
       </div>
       <ul :class="['nav', {'mobile-nav': mobileNav}]">
         <li class="nav-item">
-          <RouterLink :to="{name: 'home'}">Home</RouterLink>
-        </li>
-        <li class="nav-item">
           <RouterLink :to="{name: 'dashboard'}" @click="toggleMenu">Dashboard</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink :to="{name: 'home'}">Work</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink :to="{name: 'home'}">Careers</RouterLink>
-        </li>
-        <li class="nav-item">
-          <RouterLink :to="{name: 'home'}">Contact Us</RouterLink>
         </li>
         <li class="nav-item">
           <button @click="handleLogout">Logout</button>
@@ -71,7 +59,7 @@ const handleLogout = () => {
   padding: 0 0.5em;
   background-color: var(--color-background);
   z-index: 100;
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border-hover);
 }
 
 /* NAVIGATION */

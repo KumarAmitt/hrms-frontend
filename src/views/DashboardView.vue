@@ -20,7 +20,7 @@ import AppNavbar from "@/components/AppNavbar.vue";
 <style scoped>
 
 .dashboard-container {
-  border: 1px solid green;
+  //border: 1px solid green;
 }
 
 .dashboard-nav {
@@ -30,13 +30,13 @@ import AppNavbar from "@/components/AppNavbar.vue";
   right: 0;
   display: flex;
   justify-content: space-between;
-  background: #fff;
+  background: var(--color-background);
   border-top: 1px solid var(--color-divider-dark-2);
 }
 
 @media screen and (min-width: 992px) {
   .dashboard {
-    background-color: yellow;
+    //background-color: yellow;
   }
   .dashboard-container {
     margin-left: 92px;
@@ -47,7 +47,7 @@ import AppNavbar from "@/components/AppNavbar.vue";
     top: 0;
     justify-content: flex-start;
     border-top: none;
-    border-right: 1px solid var(--color-divider-dark-2);
+    border-right: 1px solid var(--color-border-hover);
   }
 }
 

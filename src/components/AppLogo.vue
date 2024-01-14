@@ -14,7 +14,7 @@ const logoLink = computed(() => {
 </script>
 
 <template>
-  <RouterLink :to="{name: logoLink}" :class="['logo', size, variant]">App Logo</RouterLink>
+  <RouterLink :to="{name: logoLink}" :class="['logo', size, variant]">AppLogo</RouterLink>
 </template>
 
 <style scoped>

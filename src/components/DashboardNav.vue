@@ -27,19 +27,25 @@
 
 <style scoped>
 a {
-  //border: 1px solid red;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none;
   padding: 0.5em 0 0.4em;
-  color: var(--color-accent);
   width: calc(100vw / 5);
+  color: var(--color-text);
+  transition: all 0.3s ease-in;
+}
+
+a:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
 }
 
 a span {
   margin-top: 0.3em;
 }
+
 
 @media screen and (min-width: 992px) {
   a {
