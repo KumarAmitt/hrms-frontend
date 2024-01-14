@@ -1,10 +1,12 @@
 <script setup>
+  import {onMounted} from "vue";
+
   const props = defineProps({
     type: {type: String, default: 'notice'}
   })
 
   const emit = defineEmits(['confirmError'])
-
+  onMounted(() => setTimeout(() => emit('confirmError'), 5000));
 </script>
 
 <template>
@@ -25,13 +27,13 @@ dialog {
   position: fixed;
   top: 4em;
   right: 10px;
-  left: 20%;
+  max-width: 70%;
   margin: unset;
   inset-inline-start: unset;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  //border-radius: 10px;
+  border-radius: 5px;
 }
 
 button {
@@ -44,10 +46,21 @@ button {
 }
 
 .notice {
-  border-left: 6px solid green;
+  border-color: green;
+  border-left-width: 6px;
+  background-color: #89D99D;
 }
 
 .alert {
-  border-left: 6px solid red;
+  border-color: red;
+  border-left-width: 6px;
+  background-color: pink;
+}
+
+@media (min-width: 992px) {
+  dialog {
+    min-width: 20%;
+    max-width: 40%;
+  }
 }
 </style>

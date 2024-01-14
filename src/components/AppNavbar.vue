@@ -71,7 +71,7 @@ const handleLogout = () => {
   padding: 0 0.5em;
   background-color: var(--color-background);
   z-index: 100;
-  border-bottom: 1px solid var(--color-divider-dark-2);
+  border-bottom: 1px solid var(--color-border);
 }
 
 /* NAVIGATION */
@@ -106,10 +106,12 @@ const handleLogout = () => {
 .nav-item a {
   text-decoration: none;
   transition: color 0.3s ease-out;
+  color: var(--color-text);
 }
 
 .nav-item a:hover {
-  color: #3498db;
+  color: var(--color-heading);
+  text-decoration: underline;
 }
 
 /* MOBILE MENU & ANIMATION */
@@ -161,10 +163,10 @@ const handleLogout = () => {
     flex-direction: column;
     justify-content: start;
     position: fixed;
-    top: 2.6em;
-    width: 100%;
-    height: calc(100vh - 2.6em);
-    transform: translate(-103%);
+    top: 3.1em;
+    width: 101%;
+    height: calc(100vh - 3.1em);
+    transform: translate(-101%);
     overflow: hidden;
     background-color: var(--color-background);
   }

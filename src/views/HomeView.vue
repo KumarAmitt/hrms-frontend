@@ -43,6 +43,8 @@ main {
   //border: 2px solid blue;
   position: relative;
   padding-bottom: 100px;
+  align-self: center;
+  //background-color: var(--color-background);
 }
 
 .section__static::before {
@@ -63,6 +65,7 @@ main {
   text-align: center;
   margin-top: 5em;
   padding: 1em;
+  color: var(--color-heading);
 }
 
 .intro-text span {
@@ -94,7 +97,7 @@ main {
 
   section {
     flex: 1;
-    border: 1px solid red;
+    //border: 1px solid red;
   }
 
   .intro-text {
@@ -104,6 +107,8 @@ main {
   .start-btn {
     position: initial;
   }
+
+
 }
 </style>
 

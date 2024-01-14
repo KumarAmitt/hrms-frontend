@@ -44,7 +44,7 @@ const handleLogin = () => {
 
 <style scoped>
 .container {
-  border: 2px solid red;
+  //border: 2px solid red;
   margin-top: -50px;
   padding: 8em 1em 6em;
   background: linear-gradient(to bottom, var(--color-accent), #fff);
@@ -75,14 +75,23 @@ form > * {
   margin-bottom: 1em;
 }
 
+input, input:focus {
+  outline: none;
+  border: none;
+}
+
 form input {
   font-size: 1rem;
   padding: 0.5em;
+  background-color: transparent;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-text);
 }
 
 form input:focus {
-  outline: none
+  border-bottom: 1px solid var(--color-accent);
 }
+
 
 .sub-content {
   margin-top: 2em;
@@ -93,6 +102,20 @@ form input:focus {
 .sub-content a {
   text-decoration: none;
   color: var(--color-accent);
+}
+
+@media (min-width: 992px) {
+  .container {
+    background: var(--color-background);
+  }
+  .content {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    max-width: 600px;
+    min-height: 40vh;
+    color: var(--color-heading);
+    //background: radial-gradient(#fff2 30%, #fff4);
+    background: radial-gradient(var(--color-background) 30%, var(--color-background-soft));
+  }
 }
 
 </style>
