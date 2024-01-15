@@ -1,5 +1,5 @@
 import {defineStore} from 'pinia';
-import {ref} from 'vue';
+import {ref, computed} from 'vue';
 import {BASE_URL} from "@/constants.js";
 import axios from "axios";
 import {useRouter} from "vue-router";
@@ -23,9 +23,6 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await axios.post(`${BASE_URL}/signup`, {user: credentials});
       user.value = response.data.user
       token.value =  response.headers.get('Authorization')
-      console.log(token.value)
-      console.log(user.value);
-      console.log(response);
       await router.push({name: 'login'});
     } catch(error) {
       console.log('ERROR--', error)
@@ -47,10 +44,9 @@ export const useAuthStore = defineStore('auth', () => {
     authError.value = null;
     try {
       const response = await axios.post(`${BASE_URL}/login`, {user: credentials});
-      user.value = response.data.user
       token.value =  response.headers.get('Authorization')
-      console.log(response)
       useStorage('token', token.value)
+      useStorage('user', response.data.user)
       await router.push({name: 'dashboard'});
     } catch(error) {
       console.log('ERROR--', error)
@@ -76,6 +72,7 @@ export const useAuthStore = defineStore('auth', () => {
       console.log('LOGOUT RESPONSE--', response);
       router.push({name: 'home'});
       token.value = null;
+      user.value = null;
     } catch(error) {
       if (error.response) {
         alert(error.response.data.message)
@@ -90,7 +87,7 @@ export const useAuthStore = defineStore('auth', () => {
       const response = await axios.get(`${BASE_URL}/current_user`, {
         headers: { "Authorization": token.value }
       });
-      console.log(response);
+      return response.data;
     } catch(error) {
       if (error.response) {
         alert(error.response.data)
@@ -113,5 +110,8 @@ export const useAuthStore = defineStore('auth', () => {
 
   const closeError = () => authError.value = null;
 
-  return {isLoading, authError, signup, login, logout, currentUser, userSignedIn, closeError}
+  // Getters
+  const getToken = computed(() => token.value);
+
+  return {isLoading, authError, user, signup, login, logout, currentUser, userSignedIn, closeError, getToken}
 })

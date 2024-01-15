@@ -10,6 +10,7 @@
   --color-black-mute: hsl(0, 0%, 16%);
 
   --color-accent: hsl(340, 82%, 52%);
+  /*--color-accent: green;*/
 
   --color-divider-light-1: hsla(0, 0%, 24%, 0.29);
   --color-divider-light-2: hsla(0, 0%, 24%, 0.12);

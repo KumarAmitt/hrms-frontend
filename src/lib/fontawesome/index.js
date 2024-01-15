@@ -9,11 +9,13 @@ import {
 import {
   faArrowRight,
   faXmark,
+  faClockRotateLeft
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
   faUser,
   faArrowRight,
-  faXmark
+  faXmark,
+  faClockRotateLeft
 )
 

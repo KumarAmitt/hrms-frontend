@@ -1,15 +1,18 @@
 <script setup>
 import DashboardNav from "@/components/DashboardNav.vue";
 import AppNavbar from "@/components/AppNavbar.vue";
+import WelcomeMessage from "@/components/dashboard/WelcomeMessage.vue";
+import MarkMyAttendance from "@/components/dashboard/MarkMyAttendance.vue";
 </script>
 
 <template>
   <main class="dashboard">
     <div class="dashboard-container">
       <AppNavbar />
-      <h1>Dashboard</h1>
-      <p v-for="i in 20" :key="i">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor esse id ipsum natus nisi sapiente suscipit
-        veritatis. Illo.</p>
+      <div class="dashboard-body">
+        <WelcomeMessage />
+        <MarkMyAttendance />
+      </div>
     </div>
     <div class="dashboard-nav">
       <DashboardNav/>
@@ -20,7 +23,15 @@ import AppNavbar from "@/components/AppNavbar.vue";
 <style scoped>
 
 .dashboard-container {
-  //border: 1px solid green;
+  background-color: var(--color-background-soft);
+}
+
+.dashboard-body {
+  padding: 1em;
+}
+
+.dashboard-body > * + * {
+  margin-top: 1em;
 }
 
 .dashboard-nav {

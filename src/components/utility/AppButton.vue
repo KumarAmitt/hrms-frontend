@@ -20,6 +20,7 @@ button {
   font-size: 1.2rem;
   border: 1px solid var(--color-accent);
   transition: all 0.3s ease-out;
+  cursor: pointer;
 }
 
 button:hover {

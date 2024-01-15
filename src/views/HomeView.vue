@@ -108,7 +108,6 @@ main {
     position: initial;
   }
 
-
 }
 </style>
 
